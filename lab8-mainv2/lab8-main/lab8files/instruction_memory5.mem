@@ -1,0 +1,106 @@
+34040000	//	main:		ori	$a0, $zero, 0 ->	main:		ori	$a0, $zero, 0
+34050010	//			ori	$a1, $zero, 16 ->			ori	$a1, $zero, 16
+34064010	//			ori	$a2, $zero, 16400 ->			ori	$a2, $zero, 16400
+34020000	//			ori	$v0, $zero, 0 ->			ori	$v0, $zero, 0
+34030000	//			ori	$v1, $zero, 0 ->			ori	$v1, $zero, 0
+20167fff	//			addi	$s6, $zero, 32767 ->			addi	$s6, $zero, 32767
+0000b820	//			add	$s7, $zero, $zero ->			add	$s7, $zero, $zero
+0000c020	//			add	$t8, $zero, $zero ->			add	$t8, $zero, $zero
+0000a020	//			add	$s4, $zero, $zero ->			add	$s4, $zero, $zero
+0000a820	//			add	$s5, $zero, $zero ->			add	$s5, $zero, $zero
+8c900008	//			lw	$s0, 8($a0) ->			lw	$s0, 8($a0)
+8c91000c	//			lw	$s1, 12($a0) ->			lw	$s1, 12($a0)
+00009020	//			add	$s2, $zero, $zero ->			add	$s2, $zero, $zero
+00009820	//			add	$s3, $zero, $zero ->			add	$s3, $zero, $zero
+00007820	//			add	$t7, $zero, $zero ->			add	$t7, $zero, $zero
+00004020	//	part0:		add	$t0, $zero, $zero ->	part0:		add	$t0, $zero, $zero
+00004820	//			add	$t1, $zero, $zero ->			add	$t1, $zero, $zero
+0000c820	//			add	$t9, $zero, $zero ->			add	$t9, $zero, $zero
+00005020	//			add	$t2, $zero, $zero ->			add	$t2, $zero, $zero
+8c8e000c	//	part1:		lw	$t6, 12($a0) ->	part1:		lw	$t6, 12($a0)
+010e702a	//			slt	$t6, $t0, $t6 ->			slt	$t6, $t0, $t6
+11c0000f	//			beq	$t6, $zero, part3 ->			beq	$t6, $zero, part3
+00197080	//	part2:		sll	$t6, $t9, 2 ->	part2:		sll	$t6, $t9, 2
+01c67020	//			add	$t6, $t6, $a2 ->			add	$t6, $t6, $a2
+8dcc0000	//			lw	$t4, 0($t6) ->			lw	$t4, 0($t6)
+000a7080	//			sll	$t6, $t2, 2 ->			sll	$t6, $t2, 2
+01c57020	//			add	$t6, $t6, $a1 ->			add	$t6, $t6, $a1
+8dcd0000	//			lw	$t5, 0($t6) ->			lw	$t5, 0($t6)
+018d5822	//			sub	$t3, $t4, $t5 ->			sub	$t3, $t4, $t5
+0160702a	//			slt	$t6, $t3, $zero ->			slt	$t6, $t3, $zero
+11c00001	//			beq	$t6, $zero, foobar ->			beq	$t6, $zero, foobar
+000b5822	//			sub	$t3, $zero, $t3 ->			sub	$t3, $zero, $t3
+02ebb820	//	foobar:		add	$s7, $s7, $t3 ->	foobar:		add	$s7, $s7, $t3
+21080001	//			addi	$t0, $t0, 1 ->			addi	$t0, $t0, 1
+214a0001	//			addi	$t2, $t2, 1 ->			addi	$t2, $t2, 1
+23390001	//			addi	$t9, $t9, 1 ->			addi	$t9, $t9, 1
+08000013	//			j	part1 ->			j	part1
+21290001	//	part3:		addi	$t1, $t1, 1 ->	part3:		addi	$t1, $t1, 1
+8c8e0008	//			lw	$t6, 8($a0) ->			lw	$t6, 8($a0)
+012e702a	//			slt	$t6, $t1, $t6 ->			slt	$t6, $t1, $t6
+11c00009	//			beq	$t6, $zero, partSad ->			beq	$t6, $zero, partSad
+8c8e0004	//	part4:		lw	$t6, 4($a0) ->	part4:		lw	$t6, 4($a0)
+71d55002	//			mul	$t2, $t6, $s5 ->			mul	$t2, $t6, $s5
+71c97002	//			mul	$t6, $t6, $t1 ->			mul	$t6, $t6, $t1
+01ca5020	//			add	$t2, $t6, $t2 ->			add	$t2, $t6, $t2
+01545020	//			add	$t2, $t2, $s4 ->			add	$t2, $t2, $s4
+8c8e000c	//			lw	$t6, 12($a0) ->			lw	$t6, 12($a0)
+71c9c802	//			mul	$t9, $t6, $t1 ->			mul	$t9, $t6, $t1
+00004020	//			add	$t0, $zero, $zero ->			add	$t0, $zero, $zero
+08000013	//			j	part1 ->			j	part1
+02f6702a	//	partSad:	slt	$t6, $s7, $s6 ->	partSad:	slt	$t6, $s7, $s6
+11c00003	//			beq	$t6, $zero, partSad2 ->			beq	$t6, $zero, partSad2
+02e0b020	//			add	$s6, $s7, $zero ->			add	$s6, $s7, $zero
+02a01020	//			add	$v0, $s5, $zero ->			add	$v0, $s5, $zero
+02801820	//			add	$v1, $s4, $zero ->			add	$v1, $s4, $zero
+0000b820	//	partSad2:	add	$s7, $zero, $zero ->	partSad2:	add	$s7, $zero, $zero
+20080002	//	moveCondition:	addi	$t0, $zero, 2 ->	moveCondition:	addi	$t0, $zero, 2
+00004820	//			add	$t1, $zero, $zero ->			add	$t1, $zero, $zero
+200d0003	//			addi	$t5, $zero, 3 ->			addi	$t5, $zero, 3
+200c0002	//			addi	$t4, $zero, 2 ->			addi	$t4, $zero, 2
+200b0001	//			addi	$t3, $zero, 1 ->			addi	$t3, $zero, 1
+130b000a	//			beq	$t8, $t3, conditionDown ->			beq	$t8, $t3, conditionDown
+130c0011	//			beq	$t8, $t4, conditionLeft ->			beq	$t8, $t4, conditionLeft
+130d0016	//			beq	$t8, $t5, conditionUp ->			beq	$t8, $t5, conditionUp
+8c8e0004	//	conditionRight:	lw	$t6, 4($a0) ->	conditionRight:	lw	$t6, 4($a0)
+01d17022	//			sub	$t6, $t6, $s1 ->			sub	$t6, $t6, $s1
+028e702a	//			slt	$t6, $s4, $t6 ->			slt	$t6, $s4, $t6
+15c00019	//			bne	$t6, $zero, moveRight ->			bne	$t6, $zero, moveRight
+23180001	//			addi	$t8, $t8, 1 ->			addi	$t8, $t8, 1
+22730001	//			addi	$s3, $s3, 1 ->			addi	$s3, $s3, 1
+21ef0001	//			addi	$t7, $t7, 1 ->			addi	$t7, $t7, 1
+11e80021	//			beq	$t7, $t0, exit ->			beq	$t7, $t0, exit
+8c8e0000	//	conditionDown:	lw	$t6, 0($a0) ->	conditionDown:	lw	$t6, 0($a0)
+01d07022	//			sub	$t6, $t6, $s0 ->			sub	$t6, $t6, $s0
+02ae702a	//			slt	$t6, $s5, $t6 ->			slt	$t6, $s5, $t6
+15c00014	//			bne	$t6, $zero, moveDown ->			bne	$t6, $zero, moveDown
+23180001	//			addi	$t8, $t8, 1 ->			addi	$t8, $t8, 1
+22310001	//			addi	$s1, $s1, 1 ->			addi	$s1, $s1, 1
+21ef0001	//			addi	$t7, $t7, 1 ->			addi	$t7, $t7, 1
+11e80019	//			beq	$t7, $t0, exit ->			beq	$t7, $t0, exit
+0254702a	//	conditionLeft:	slt	$t6, $s2, $s4 ->	conditionLeft:	slt	$t6, $s2, $s4
+15c00011	//			bne	$t6, $zero, moveLeft ->			bne	$t6, $zero, moveLeft
+23180001	//			addi	$t8, $t8, 1 ->			addi	$t8, $t8, 1
+22100001	//			addi	$s0, $s0, 1 ->			addi	$s0, $s0, 1
+21ef0001	//			addi	$t7, $t7, 1 ->			addi	$t7, $t7, 1
+11e80013	//			beq	$t7, $t0, exit ->			beq	$t7, $t0, exit
+0275702a	//	conditionUp:	slt	$t6, $s3, $s5 ->	conditionUp:	slt	$t6, $s3, $s5
+15c0000e	//			bne	$t6, $zero, moveUp ->			bne	$t6, $zero, moveUp
+0000c020	//			add	$t8, $zero, $zero ->			add	$t8, $zero, $zero
+22520001	//			addi	$s2, $s2, 1 ->			addi	$s2, $s2, 1
+21ef0001	//			addi	$t7, $t7, 1 ->			addi	$t7, $t7, 1
+11e8000d	//			beq	$t7, $t0, exit ->			beq	$t7, $t0, exit
+08000040	//			j	conditionRight ->			j	conditionRight
+00007820	//	moveRight:	add	$t7, $zero, $zero ->	moveRight:	add	$t7, $zero, $zero
+22940001	//			addi	$s4, $s4, 1 ->			addi	$s4, $s4, 1
+08000029	//			j	part4 ->			j	part4
+00007820	//	moveDown:	add	$t7, $zero, $zero ->	moveDown:	add	$t7, $zero, $zero
+22b50001	//			addi	$s5, $s5, 1 ->			addi	$s5, $s5, 1
+08000029	//			j	part4 ->			j	part4
+00007820	//	moveLeft:	add	$t7, $zero, $zero ->	moveLeft:	add	$t7, $zero, $zero
+2294ffff	//			addi	$s4, $s4, -1 ->			addi	$s4, $s4, -1
+08000029	//			j	part4 ->			j	part4
+00007820	//	moveUp:		add	$t7, $zero, $zero ->	moveUp:		add	$t7, $zero, $zero
+22b5ffff	//			addi	$s5, $s5, -1 ->			addi	$s5, $s5, -1
+08000029	//			j	part4 ->			j	part4
+08000069	//	exit:		j	exit ->	exit:		j	exit
